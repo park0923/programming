@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+// 소수 확인을 위한 함수
+ 
+int sosu(int num1, int num2){
+	int i, j, value=0; /** i는 범위 
+						 * j는 소수 확인을 위한 나누는 수
+						 * value는 범위 사이의 소수의 개수
+						**/ 
+	//num1이 num2보다 큰 경우
+						
+	if(num1>num2){
+		for(i=num1;i>=num2;i--){
+			for(j=2;j<=num1;j++){
+			if(i%j==0){
+				if(i>j)
+					break;
+				else
+					printf("%d\n", j);
+					value++;
+			}	
+		 }
+		}
+	return value;
+	}
+	//num1이 num2보다 작은 경우
+	 
+	for(i=num1;i<=num2;i++){
+		for(j=2;j<=num2;j++){
+			if(i%j==0){
+				if(i>j)
+					break;
+				else
+					printf("%d\n", j);
+					value++;
+			}	
+		}
+	}
+	return value;
+}
+
+//매인 함수
+	
+int main(int argc, char *argv[]) {
+	
+	int num1, num2; 	 // num1은 범위의 처음 수 num2는 범위의 마지막 수
+	int result;			// sosu함수를 받는 변수 
+	
+	printf("범위의 첫 수를 입룍하시오.:");
+	scanf("%d", &num1);
+	printf("범위의 마지막 수를 입력하시오.:");
+	scanf("%d", &num2);
+	
+	result = sosu(num1, num2);
+	
+	printf("두 수 사이의 소수는 %d 개 입니다.\n", result); 
+	
+	return 0;
+}
