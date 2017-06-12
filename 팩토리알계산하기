@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h> 
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+// 팩토리알 계산하기
+ 
+int fact(int num){
+	if(num<1)return 1;
+	else
+		return num*fact(num-1);
+} 
+int main(int argc, char *argv[]) {
+	int num;
+	int result;
+	 
+	printf("계산하고자 하는 팩토리알을 입력하시오.:") ;
+	scanf("%d", &num);
+	
+	result= fact(num);
+	printf("%d! = %d 입니다.\n", num, result); 
+	return 0;
+}
