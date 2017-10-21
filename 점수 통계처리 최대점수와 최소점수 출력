@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	int sungjuk[10][5] = {0,};
+	int i, j, max, min;
+	
+	srand((unsigned)time(NULL));
+	
+	for(i=0;i<10;i++){
+		printf("학생 %d = ", i + 1);
+		for(j=0;j<3;j++){
+			sungjuk[i][j] = rand()%101;
+			printf("%5d",  sungjuk[i][j]);
+		}
+		printf("\n");
+	}
+	
+	max = min = sungjuk[0][0];
+	
+	for(j=0;j<3;j++){
+		max = min = sungjuk[0][j];
+		for(i=0;i<10;i++){
+			if(sungjuk[i][j] > max){
+				max = sungjuk[i][j];
+			}
+			if(min > sungjuk[i][j]){
+				min = sungjuk[i][j];
+			}
+			 
+		}
+		printf(" %d 시험 최고 점수 : %d  %d 시험 최저 점수 : %d\n",j + 1, max, j + 1, min);
+	}
+	
+	return 0;
+}
