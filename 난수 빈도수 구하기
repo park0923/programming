@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define SIZE 10
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	int num[SIZE] = {0,};
+	int i;
+	
+	srand((unsigned)time(NULL));
+	
+	for(i=0;i<100;i++){
+		printf("%3d\n", rand()%10);
+		num[rand()%10]++;	
+	}
+	for(i=0;i<10;i++){
+		printf("%3d", num[i]);
+	}
+	return 0;
+}
