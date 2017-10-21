@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	int puo[3][6] = {0,};
+	int i, j, hap;
+	
+	srand((unsigned)time(NULL));
+	
+	for(i=0;i<3;i++){
+		for(j=0;j<6;j++){
+			puo[i][j] = rand() % 100;		
+			printf("%4d", puo[i][j]);
+		}
+		printf("\n");
+	}
+	
+	for(j=0;j<6;j++){
+		for(i=0;i<3;i++){
+			hap = hap + puo[i][j];	
+		}
+		printf("%4d", hap);
+		hap = 0;
+	}
+	
+	return 0;
+}
