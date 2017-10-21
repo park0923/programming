@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	int num[3][10] ={0,};
+	int i, j;
+	
+	
+	for(j=0;j<10;j++){
+		num[0][j] = (rand() % 10) + 1;
+		printf(" %3d", num[0][j]);
+	}
+	printf("\n");
+	
+	for(j=0;j<10;j++){
+		num[1][j] = num[0][j] * num[0][j];
+		printf(" %3d", num[1][j]);
+	}
+	printf("\n");
+	
+	for(j=0;j<10;j++){
+		num[2][j] = num[1][j] * num[0][j];
+		printf(" %3d", num[2][j]);
+	}
+	printf("\n");
+	
+	return 0;
+}
