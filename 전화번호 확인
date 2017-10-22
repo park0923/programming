@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+ 
+//전화번호 입력받은 후 확인 
+ 
+int main(int argc, char *argv[]) {
+	char call[20];
+	char subcall[5];
+	int len;
+	
+	printf("input number:");
+	gets(call);
+	
+	len = strlen(call);
+	
+	if(len != 13){
+		puts("tel number lenght ERRO\n");
+		return 0;
+	}
+	
+	strncpy(subcall, call, 3);
+	
+	if(!strcmp(subcall, "010")){ //010 check
+		puts("010 ok\n");
+	}
+	else{
+		puts("010 아님\n");
+		return;
+	}
+	return 0;
+}
