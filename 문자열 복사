@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+//영어는 아스키코드라 1바이트(8비트)에 표현되지만 한글은 2바이트(16비트)가필요 
+//문자열 복사
+int main(int argc, char *argv[]) {
+	char ask[100];
+	char qwe[100];
+	int i, len;
+	 
+	printf("inout : \n", ask);
+	gets(ask);
+	//strcpy(qwe, ask);
+	/*for(i=0;ask[i] != NULL; i++){
+		count++;
+	}*/
+	len = strlen(ask); 
+	printf("입력받은 문자의 수는 %d 입니다.",len);
+	/*for(i=0;ask[i] != NULL; i++){
+		qwe[i] = ask[i];
+	}*/
+	//qwe[i] = NULL;
+	//puts(qwe);
+	return 0;
+}
