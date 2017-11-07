@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define STU_NUMBER 1
+#define REG_NUMBER 2
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+struct student{
+	int type;
+	union{
+		int stu_number;
+		int reg_number;
+	}id;
+	char name[20];
+};
+
+void print(struct student s){
+	switch(s.type){
+		case STU_NUMBER :
+			printf("학번 : %d\n",s.id.stu_number);
+			printf("이름 : %s\n",s.name);
+			break;
+		case REG_NUMBER :
+			printf("직원번호: %d\n",s.id.reg_number);
+			printf("이름 : %s\n",s.name);
+			break;
+		default :
+			printf("타입오류\n");
+			break;
+	}
+}
+int main(int argc, char *argv[]) {
+	
+	struct student s1;
+	int num; 
+	printf("개인정보를 입력하세요.(학생은 1 작원은 2)");
+	scanf("%d",&num);
+	
+	if(num == STU_NUMBER){
+		s1.type = STU_NUMBER;
+		printf("학번 :");
+		scanf("%d",&s1.id.stu_number);
+	}
+	else if(num == REG_NUMBER){
+		s1.type = REG_NUMBER;
+		printf("직원번호:");
+		scanf("%d",&s1.id.reg_number);
+	}
+	printf("이름 :");
+	scanf("%s",&s1.name); 	
+	print(s1);
+	//print(s1);
+	//print(s2);
+	/*s1.type = STU_NUMBER;
+	s1.id.stu_number = 20173205;
+	strcpy(s1.name,"박중한");
+	
+	s2.type = REG_NUMBER;
+	strcpy(s2.id.reg_number,"860101-1056076");
+	strcpy(s2.name,"김철수");*/
+	
+	 
+	return 0;
+}
