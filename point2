@@ -44,7 +44,6 @@ int main(int argc, char *argv[]) {
 				p = p + 5;
 			}
 		}
-		
 		else if(num == 3){
 			break;
 		}
@@ -52,10 +51,10 @@ int main(int argc, char *argv[]) {
 		for(i=0;i<5;i++){
 			for(j=0;j<5;j++){
 				printf("%5d", matrix[i][j]);
-				matrix[i][j] = 0;
+				//matrix[i][j] = 0;
 			}
 			printf("\n");
-		}*
+		}
 		
 		p = matrix[0];
 		
@@ -66,6 +65,7 @@ int main(int argc, char *argv[]) {
 			printf("%5d", *(p+i));
 			*(p+i) = 0;
 		}
+		printf("\n");
 	}*/
 	
 	/*char c = 'A';
