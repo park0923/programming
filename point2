@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	//배열 arr에 1,3,5,7,9의 값을 저장하여 포인터를 이용하여 값을 더하여라 
+	/*int arr[] = {1, 3, 5, 7, 9};
+	*int *p = arr;
+	*int i, sum = 0;
+	
+	
+	*for(i=0;i<5;i++){
+	*	printf("%d\n", *(p+i));
+	*	sum = sum + *(p + i);
+	*}
+	
+	*printf("sum = %d", sum);
+	*/
+	
+	/*int matrix[5][5] = {0,};
+	int *p;
+	int i, j, count, num = 0;
+
+	while(num != 3){
+		printf("1. 예제1\n2. 예제2\n3. 작업종료\n 당신이 원하는 직업은 :");
+		scanf("%d", &num);
+		
+		p = matrix[0];
+		count = 1;
+		if(num == 1){
+			for(i=4;i>=0;i--){
+				for(j=0;j<=4-i;j++){
+					*(p+i+j) = count++;
+				}
+				p = p + 5;
+			}
+		}
+		else if(num == 2){
+			for(i=0;i<5;i++){
+				for(j=0;j<5-i;j++){
+					*(p+j) = count++;
+				}
+				p = p + 5;
+			}
+		}
+		
+		else if(num == 3){
+			break;
+		}
+		
+		for(i=0;i<5;i++){
+			for(j=0;j<5;j++){
+				printf("%5d", matrix[i][j]);
+				matrix[i][j] = 0;
+			}
+			printf("\n");
+		}*
+		
+		p = matrix[0];
+		
+		for(i=0;i<25;i++){
+			if(i%5 == 0){
+				printf("\n");
+			}
+			printf("%5d", *(p+i));
+			*(p+i) = 0;
+		}
+	}*/
+	
+	/*char c = 'A';
+	int *p;
+	
+	p = &c;
+	
+	printf("c = %u\nc = %c\nc = %u", &c, *p, p);
+	*/
+	
+	int x, y;
+	 
+	printf("input x, y:");
+	scanf("%d %d", &x, &y);
+	 
+	printf("input value x = %d y = %d\n", x, y);
+	swap(&x, &y);
+	printf("after value x = %d y = %d\n", x, y);
+	
+	
+	
+	return 0;
+}
+
+int swap(int *px, int *py){
+	int temp;
+	
+	temp = *px;
+	*px = *py;
+	*py = temp;
+}
