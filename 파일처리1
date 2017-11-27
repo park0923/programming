@@ -1,0 +1,122 @@
+/*성적처리 프로그램을 파일로 기록
+
+  입력.txt => 홍길동 100 90 80 ==> 20명 존재
+  출력1.txt => 이름 국어 영어 수학 총점 평균 석차 
+  출력2.txt => 석차 이름 국어 영어 수학 총점 평균
+  (석차오름차순)
+  
+*/
+
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+
+struct student{
+   char name[10];
+   int kor;
+   int eng;
+   int math;
+   int sum;
+   int rank;
+   float aver;
+}
+
+
+main()
+{
+   
+   int i,j,count=1;
+   float sum;
+   FILE *fp1, *fp2, *fp3;
+   struct student st[20],temp;
+   fp1=fopen("입력.txt","w");
+   fp2=fopen("출력1.txt","w");
+   fp3=fopen("출력2.txt","w");
+   
+   srand(time(NULL));
+
+   fprintf(fp1,"이름 국어 영어 수학 \n"); // 입력 및 계산
+   for(i=0;i<20;i++)
+   {
+      for(j=0;j<3;j++)
+      {
+         st[i].name[j] = rand()%26+97;
+         
+      }//for j 종료
+      
+      st[i].kor=rand()%101;
+      st[i].eng=rand()%101;
+      st[i].math=rand()%101;
+      sum=st[i].sum=st[i].kor+st[i].eng+st[i].math; //총합구하기
+      if(st[i].sum == 0)
+         st[i].aver=0;
+      else
+         st[i].aver=sum/3; //평균구하기
+      
+      
+      for(j=0;j<3;j++)
+      {
+         fprintf(fp1,"%c",st[i].name[j]);
+      }
+      fprintf(fp1,"  %3d  %3d  %3d\n",st[i].kor, st[i].eng,st[i].math); 
+   }//for i 종료
+   fclose(fp1);
+   
+   
+   
+   
+   
+   fprintf(fp2,"이름 국어 영어 수학 합계 평균      석차\n");// 랭크 구하기
+   for(i=0;i<20;i++)
+   {
+      for(j=0;j<20;j++)
+      {
+         if(st[i].sum < st[j].sum)
+            count++;
+      }
+      st[i].rank = count;
+      count = 1;
+   }   
+   for(i=0;i<20;i++) // 출력1 출력
+   {
+      
+      for(j=0;j<3;j++)
+      {
+         fprintf(fp2,"%c",st[i].name[j]);
+      }
+      fprintf(fp2,"  %3d  %3d  %3d  %3d  %3f  %3d\n",st[i].kor, st[i].eng,st[i].math,st[i].sum, st[i].aver, st[i].rank ); //출력
+   }//for i 종료
+   fclose(fp2);
+   
+   
+   
+   
+   
+   
+   fprintf(fp3,"이름 국어 영어 수학 합계 평균      석차\n"); // 오름차순정리
+   for(i=0; i<19; i++)
+   {
+      for(j=i+1; j<20; j++)
+      {
+         if(st[i].rank > st[j].rank )
+         {
+            temp = st[i];
+            st[i]= st[j];
+            st[j]= temp;
+         }         
+      }//j종료
+      
+   }//i종료  
+   
+   for(i=0;i<20;i++) //출력2 출력
+   {
+      for(j=0;j<3;j++)
+      {
+         fprintf(fp3,"%c",st[i].name[j]);
+      }
+      fprintf(fp3,"  %3d  %3d  %3d  %3d  %3f      %3d\n",st[i].kor, st[i].eng,st[i].math,st[i].sum, st[i].aver, st[i].rank ); //출력
+   }
+   fclose(fp3); 
+   
+}//전체종료
