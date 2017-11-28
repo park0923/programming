@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	char f2[100];
+	char buffer[100];
+	char temp[100];
+	int i=1;
+	FILE *fp1, *fp2;
+	
+	
+	//printf("copyfile name:");
+	//scanf("%s", f2);
+	
+	if((fp1 = fopen("dic.txt", "r")) == NULL){
+		printf("error");
+		exit(1);
+	}
+	if((fp2 = fopen("dic2.txt", "w"))== NULL){
+		printf("error");
+		exit(1);
+	}
+	while(fgets(buffer, 100, fp1) != NULL){
+		//fprintf(fp2,"[%d]. %s", i, buffer);
+		sprintf(temp,"[%d] %s", i, buffer);		//a문자열에 형식대로 써라 
+		fputs(temp,fp2);
+		i++; 
+	}
+	
+	
+	fclose(fp1);
+	fclose(fp2);
+	
+	return 0;
+}
