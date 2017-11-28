@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	char word[20];
+	char meaning[100];
+	int i=0;
+	FILE *fp = NULL;
+	fp = fopen("dic.txt", "w");
+	if(fp == NULL){
+		printf("그런 파일이 없습니다.\n");
+	}
+	else{
+		printf("파일을 잘 열었습니다.\n");
+		while(i<3){
+			printf("단어와 뜻을 입력하시오.:\n");
+			scanf("%s %s", word, meaning);
+			fprintf(fp,"[%s] : %s\n", word, meaning);
+			i++;
+		}
+	}
+	
+	fclose(fp);
+	return 0;
+}
