@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 3
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+struct student{
+	char name[MAX];
+	float eng;
+	float com;
+	
+};
+int main(int argc, char *argv[]) {
+	struct student s;
+	int i = 0;
+	float total1 = 0;
+	float total2 = 0;
+	
+	FILE *fp;
+	
+	if((fp = fopen("score.txt", "w")) == NULL){
+		printf("ERROR");
+		exit(1);
+	}
+	else{
+		fprintf(fp,"이름   	영어  	 컴푸터\n");
+		fprintf(fp,"--------------------------\n");
+		for(i=0;i<MAX;i++){
+			printf("이름을 입력하세요.:");
+			scanf("%s", s.name);
+			printf("영어성적을 입력하세요.:");
+			scanf("%f", &s.eng);
+			printf("컴퓨터 성적을 입력하세요.:");
+			scanf("%f", &s.com);  
+			fprintf(fp,"%s  	%3.1f  	%3.1f\n", s.name, s.eng, s.com);
+			total1+= s.eng;
+			total2+= s.com;
+		}
+		fprintf(fp,"--------------------------\n");
+		fprintf(fp,"총점       %3.1f    	%3.1f\n", total1, total2);
+		fprintf(fp,"평균       %3.1f  	%3.1f\n", total1/MAX, total2/MAX);
+	}	
+	fclose(fp);
+	
+	
+	return 0;
+}
